@@ -1,0 +1,27 @@
+{
+  "name": "http-longcut",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "http-longcut": "client-side.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanRSmith/http-longcut.git"
+  },
+  "author": "Nathan Smith <nathanrandal@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NathanRSmith/http-longcut/issues"
+  },
+  "homepage": "https://github.com/NathanRSmith/http-longcut#readme",
+  "dependencies": {
+    "request": "^2.83.0",
+    "socket.io": "^2.0.4",
+    "yargs": "^11.0.0"
+  }
+}
