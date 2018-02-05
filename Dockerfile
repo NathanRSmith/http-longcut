@@ -1,4 +1,4 @@
-FROM node:6-slim
+FROM node:8-slim
 MAINTAINER Nathan Smith <nathanrandal@gmail.com>
 
 WORKDIR /opt/longcut
