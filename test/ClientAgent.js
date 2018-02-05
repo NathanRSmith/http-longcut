@@ -36,6 +36,8 @@ module.exports = {
         assert.equal(payload.url, 'blah/de/blah');
         assert.deepEqual(payload.headers, {});
         assert.equal(payload.body, 'hi');
+
+        clientAgent.removeRequest(payload.client_req_id);
         done();
       })
 

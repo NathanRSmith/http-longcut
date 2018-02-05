@@ -1,8 +1,6 @@
 const assert = require('assert');
 const UpstreamAgent = require('../lib/UpstreamAgent');
 const EventEmitter = require('events');
-const MockReq = require('mock-req');
-const MockRes = require('mock-res');
 
 const logger = {
   fatal: () => {},
@@ -35,6 +33,7 @@ module.exports = {
         id: 'upstream',
         http: http,
         socket: socket,
+        target_address: 'http://example.com:9000',
         logger: logger
       });
 
@@ -51,7 +50,7 @@ module.exports = {
         upstream_target: 'upstream',
         method: 'GET',
         headers: {},
-        url: 'blah/deblah',
+        url: '/blah/deblah',
         body: '',
         broker_id: 'broker',
         broker_req_id: 'brokerblah'
@@ -96,7 +95,7 @@ module.exports = {
         upstream_target: 'upstream',
         method: 'GET',
         headers: {},
-        url: 'blah/deblah',
+        url: '/blah/deblah',
         body: '',
         broker_id: 'broker',
         broker_req_id: 'brokerblah'

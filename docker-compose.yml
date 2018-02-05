@@ -1,0 +1,20 @@
+version: '2'
+services:
+
+  client:
+    image: http-longcut
+    command: node bin/client-agent.js --id client --port 8000 --upstream-target upstream --broker http://broker:8000
+  broker:
+    image: http-longcut
+    command: node bin/broker.js --id broker --port 8000
+  upstream:
+    image: http-longcut
+    command: node bin/upstream-agent.js --id upstream --target-address http://au2:7900 --broker http://broker:8000
+    networks:
+      - default
+      - au2
+
+networks:
+  au2:
+    external:
+      name: aunsight-in-a-box

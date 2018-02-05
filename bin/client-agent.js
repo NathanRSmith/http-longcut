@@ -1,4 +1,3 @@
-// args: id, upstream-name, broker-address
 const yargs = require('yargs')
   .option('id', {description: 'client agent id', type: 'string', required: true})
   .option('port', {description: 'port to listen on', type: 'string', required: true})
@@ -12,6 +11,7 @@ const argv = yargs.argv;
 const io = require('socket.io-client');
 const url = require('url');
 const http = require('http');
+const ClientAgent = require('../lib/ClientAgent');
 
 const logger = {
   fatal: console.log,
@@ -24,7 +24,6 @@ const logger = {
 };
 
 // listen for http requests
-// auto parse body
 const server = http.createServer();
 const socket = io(argv.broker);
 
@@ -35,5 +34,7 @@ const clientAgent = new ClientAgent({
   upstream_target: argv['upstream-target'],
   logger: logger.child({client_id: argv.id})
 });
+clientAgent.register();
 
 server.listen(argv.port);
+logger.info(`listening on port ${argv.port}`);

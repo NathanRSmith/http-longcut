@@ -4,6 +4,17 @@ The goal here is to be able to get HTTP requests from one network to another via
 
 Request/response bodies are expected to be small.
 
+# Demo
+
+```
+docker-compose up
+
+docker run --rm -it --net httplongcut_default http-longcut curl http://httplongcut_client_1:8000
+```
+
+# Notes
+
+
 Request structure:
 * client_id
 * client_req_id
