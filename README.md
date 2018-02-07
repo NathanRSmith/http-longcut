@@ -70,3 +70,18 @@ Upstream Agent Events:
 * broker_request_ack (sends)
 * upstream_response (sends)
 * upstream_error (sends)
+
+
+## Socket.IO Broker
+
+Client Agent Events:
+* client_sio_connection (sends): On Socket.IO server "connection"
+    * upstream_id, connection_id
+* client_sio_disconnection (sends): On Socket.IO socket "disconnection"
+    * connection_id
+* client_sio_message (sends): On Socket.IO socket message
+    * connection_id, event, message
+* upstream_sio_disconnect (receives): On upstream socketio disconnect
+    * connection_id
+* upstream_sio_message (receives): On upstream socketio message
+    * connection_id, event, message

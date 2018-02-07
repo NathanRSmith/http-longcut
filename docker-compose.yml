@@ -3,13 +3,13 @@ services:
 
   client:
     image: http-longcut
-    command: node bin/client-agent.js --id client --port 8000 --upstream-target upstream --broker http://broker:8000
+    command: node bin/client-agent.js --id client --port 8000 --socketio-port 8001 --upstream-target upstream --broker http://broker:8000 -v debug
   broker:
     image: http-longcut
-    command: node bin/broker.js --id broker --port 8000
+    command: node bin/broker.js --id broker --port 8000 -v debug
   upstream:
     image: http-longcut
-    command: node bin/upstream-agent.js --id upstream --target-address http://au2:7900 --broker http://broker:8000
+    command: node bin/upstream-agent.js --id upstream --target-address http://au2:7900 --socketio-address http://au2:7901 --broker http://broker:8000 -v debug
     networks:
       - default
       - au2
