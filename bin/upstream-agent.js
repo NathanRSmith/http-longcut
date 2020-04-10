@@ -27,7 +27,14 @@ const logger = bunyan.createLogger({
 //   child: () => logger
 // };
 
-const socket = io(argv.broker);
+let opts = {};
+if(argv.broker.startsWith('https://')) {
+  opts = {
+    secure: true,
+    rejectUnauthorized: false
+  };
+}
+const socket = io(argv.broker, opts);
 const http = function(args, cb) {
   return request(args, cb);
 }
